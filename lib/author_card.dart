@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'fooderlich_theme.dart';
 import 'circle_image.dart';
+import 'myInheritedWidget.dart';
 
 class AuthorCard extends StatefulWidget {
   final String authorName;
@@ -18,10 +19,9 @@ class AuthorCard extends StatefulWidget {
 }
 
 class _AuthorCardState extends State<AuthorCard> {
-  bool _isFavorited = false;
-
   @override
   Widget build(BuildContext context) {
+    MyInheritedWidget ? myInheritedWidget = MyInheritedWidget.of(context);
     return Container(
       padding: const EdgeInsets.all(16),
       child: Row(
@@ -45,14 +45,15 @@ class _AuthorCardState extends State<AuthorCard> {
             ),
           ]),
           IconButton(
-            icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
+            icon: Icon(myInheritedWidget!.appData.isFavorite ? Icons.favorite : Icons.favorite_border),
             iconSize: 30,
-            color: Colors.red[400],
+            color: Colors.red[350],
             onPressed: () {
               const snackBar = SnackBar(content: Text('Press Favorite'));
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
               setState(() {
-                _isFavorited = !_isFavorited;
+                myInheritedWidget.appData.changeBackgroundColor();
+                // _isFavorited = !_isFavorited;
               });
             },
           ),
