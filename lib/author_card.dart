@@ -47,10 +47,10 @@ class _AuthorCardState extends State<AuthorCard> {
           IconButton(
             icon: Icon(myInheritedWidget!.appData.isFavorite ? Icons.favorite : Icons.favorite_border),
             iconSize: 30,
-            color: Colors.red[350],
+            color: Colors.red[400],
             onPressed: () {
-              const snackBar = SnackBar(content: Text('Press Favorite'));
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              // const snackBar = SnackBar(content: Text('Press Favorite'));
+              // ScaffoldMessenger.of(context).showSnackBar(snackBar);
               setState(() {
                 myInheritedWidget.appData.changeBackgroundColor();
                 // _isFavorited = !_isFavorited;
