@@ -11,6 +11,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+
   static List<Widget> pages = <Widget>[
     const Card1(),
     const Card2(),
@@ -25,6 +26,7 @@ class _HomeState extends State<Home> {
       color: Colors.blue,
     ),
   ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -52,11 +54,11 @@ class _HomeState extends State<Home> {
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
-            label: 'Card2',
+            label: 'Card 2',
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
-            label: 'Card3',
+            label: 'Card 3',
           ),
         ],
       ),
