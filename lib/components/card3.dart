@@ -28,7 +28,7 @@ class Card3 extends StatelessWidget {
           image: DecorationImage(
               image: AssetImage(recipe.backgroundImage.toString()),
               fit: BoxFit.cover),
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         ),
         child: Stack(
           children: [
