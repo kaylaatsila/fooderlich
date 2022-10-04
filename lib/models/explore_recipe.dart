@@ -61,12 +61,14 @@ class ExploreRecipe {
     tags = json['tags'].cast<String>();
     description = json['description'];
     source = json['source'];
+    
     if (json['ingredients'] != null) {
       ingredients = <Ingredients>[];
       json['ingredients'].forEach((v) {
         ingredients!.add(Ingredients.fromJson(v));
       });
     }
+
     if (json['instructions'] != null) {
       instructions = <Instruction>[];
       json['instructions'].forEach((v) {
