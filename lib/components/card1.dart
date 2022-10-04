@@ -13,7 +13,7 @@ class Card1 extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         constraints: const BoxConstraints.expand(width: 350, height: 450),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(recipe.backgroundImage.toString()),
             fit: BoxFit.cover,

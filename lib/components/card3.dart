@@ -5,12 +5,12 @@ import '/models/models.dart';
 class Card3 extends StatelessWidget {
   final ExploreRecipe recipe;
 
-  const Card3({Key? key, required ExploreRecipe recipe, this.recipe}) : super(key: key);
+  const Card3({Key? key, required this.recipe}) : super(key: key);
 
   List<Widget> createTagChips() {
     final chips = <Widget>[];
 
-    recipe.tags.take(6).forEach((element) {
+    recipe.tags?.take(6).forEach((element) {
       final chip = Chip(
           label: Text(element, style: FooderlichTheme.darkTextTheme.bodyText1),
           backgroundColor: Colors.black.withOpacity(0.7));
@@ -24,7 +24,7 @@ class Card3 extends StatelessWidget {
     return Center(
       child: Container(
         constraints: const BoxConstraints.expand(width: 350, height: 450),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage(recipe.backgroundImage.toString()),
               fit: BoxFit.cover),

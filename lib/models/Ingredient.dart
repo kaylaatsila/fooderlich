@@ -1,9 +1,9 @@
 part of 'explore_recipe.dart';
 
 class Ingredients {
-  late String imageUrl;
-  late String title;
-  late String source;
+  String? imageUrl;
+  String? title;
+  String? source;
 
   Ingredients({this.imageUrl, this.title, this.source});
 

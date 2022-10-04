@@ -1,9 +1,9 @@
 part of 'explore_recipe.dart';
 
 class Instruction {
-  late String imageUrl;
-  late String description;
-  late int durationInMinutes;
+  String? imageUrl;
+  String? description;
+  int? durationInMinutes;
 
   Instruction({this.imageUrl, this.description, this.durationInMinutes});
 

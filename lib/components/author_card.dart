@@ -7,6 +7,7 @@ class AuthorCard extends StatefulWidget {
   final String authorName;
   final String title;
   final ImageProvider imageProvider;
+  
   const AuthorCard({
     Key? key,
     required this.authorName,
