@@ -8,23 +8,23 @@ class RecipeCardType {
 }
 
 class ExploreRecipe {
-  String cardType;
-  String title;
-  String subtitle;
-  String backgroundImage;
-  String backgroundImageSource;
-  String message;
-  String authorName;
-  String role;
-  String profileImage;
-  int durationInMinutes;
-  String dietType;
-  int calories;
-  List<String> tags;
-  String description;
-  String source;
-  List<Ingredients> ingredients;
-  List<Instruction> instructions;
+  late String cardType;
+  late String title;
+  late String subtitle;
+  late String backgroundImage;
+  late String backgroundImageSource;
+  late String message;
+  late String authorName;
+  late String role;
+  late String profileImage;
+  late int durationInMinutes;
+  late String dietType;
+  late int calories;
+  late List<String> tags;
+  late String description;
+  late String source;
+  late List<Ingredients> ingredients;
+  late List<Instruction> instructions;
   
   ExploreRecipe(
       {this.cardType,

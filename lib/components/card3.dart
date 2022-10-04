@@ -5,7 +5,7 @@ import '/models/models.dart';
 class Card3 extends StatelessWidget {
   final ExploreRecipe recipe;
 
-  const Card3({Key? key}) : super(key: key);
+  const Card3({Key? key, required ExploreRecipe recipe, this.recipe}) : super(key: key);
 
   List<Widget> createTagChips() {
     final chips = <Widget>[];

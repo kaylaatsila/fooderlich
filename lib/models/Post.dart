@@ -1,14 +1,14 @@
 class Post{
-  String profileImageUrl;
-  String comment;
-  String foodPictureUrl;
-  String timestamp;
+  late String profileImageUrl;
+  late String comment;
+  late String foodPictureUrl;
+  late String timestamp;
 
   Post(
-      {this.profileImageUrl,
-      this.comment,
-      this.foodPictureUrl,
-      this.timestamp});
+      {required this.profileImageUrl,
+      required this.comment,
+      required this.foodPictureUrl,
+      required this.timestamp});
 
   Post.fromJson(Map<String, dynamic> json) {
     profileImageUrl = json['profileImageUrl'];
