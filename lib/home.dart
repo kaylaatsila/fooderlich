@@ -16,15 +16,6 @@ class _HomeState extends State<Home> {
     const Card1(),
     const Card2(),
     const Card3(),
-    Container(
-      color: Colors.red,
-    ),
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.blue,
-    ),
   ];
 
   void _onItemTapped(int index) {
@@ -47,6 +38,7 @@ class _HomeState extends State<Home> {
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+        // ignore: prefer_const_literals_to_create_immutables
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),

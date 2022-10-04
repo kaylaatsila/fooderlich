@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MyInheritedWidget extends InheritedWidget {
   final MyInheritedData appData;
   final Widget child;
+  
   const MyInheritedWidget({
       Key? key, 
       required this.appData, 
@@ -28,7 +29,7 @@ class MyInheritedData {
     required this.isFavorite
   });
 
-  changeBackgroundColor() {
+  changeIconColor() {
     isFavorite = !isFavorite;
   }
 }

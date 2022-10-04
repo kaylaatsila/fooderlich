@@ -52,7 +52,7 @@ class _AuthorCardState extends State<AuthorCard> {
               // const snackBar = SnackBar(content: Text('Press Favorite'));
               // ScaffoldMessenger.of(context).showSnackBar(snackBar);
               setState(() {
-                myInheritedWidget.appData.changeBackgroundColor();
+                myInheritedWidget.appData.changeIconColor();
                 // _isFavorited = !_isFavorited;
               });
             },
