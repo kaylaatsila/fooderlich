@@ -1,8 +1,8 @@
 class Post{
-  late String profileImageUrl;
-  late String comment;
-  late String foodPictureUrl;
-  late String timestamp;
+  String? profileImageUrl;
+  String? comment;
+  String? foodPictureUrl;
+  String? timestamp;
 
   Post(
       {required this.profileImageUrl,
