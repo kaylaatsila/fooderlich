@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'fooderlich_theme.dart';
-import 'screens/home.dart';
 import 'models/models.dart';
+import 'screens/screens.dart';
 import 'navigation/app_router.dart';
 import 'myInheritedWidget.dart';
 
-void main() {
-  runApp(MyInheritedWidget(appData: MyInheritedData(isFavorite: false), child: const Fooderlich()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appStateManager = AppStateManager();
+  appStateManager.initializeApp();
+  runApp(Fooderlich(appStateManager: appStateManager));
+  // runApp(MyInheritedWidget(appData: MyInheritedData(isFavorite: false), child: const Fooderlich()));
 }
 
 class Fooderlich extends StatefulWidget {
-  const Fooderlich({Key? key}) : super(key: key);
+  final AppStateManager appStateManager;
+
+  const Fooderlich({Key? key, required this.appStateManager}) : super(key: key);
 
   @override
   _FooderlichState createState() => _FooderlichState();
@@ -20,28 +26,30 @@ class Fooderlich extends StatefulWidget {
 class _FooderlichState extends State<Fooderlich> {
   final _groceryManager = GroceryManager();
   final _appStateManager = AppStateManager();
-  late AppRouter _appRouter;
-
-  @override
-  void initState() {
-    super.initState();
-    _appRouter = AppRouter(
-      appStateManager: _appStateManager,
-      groceryManager: _groceryManager,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
-    final theme = FooderlichTheme.light();
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => _groceryManager,
+        ),
+        ChangeNotifierProvider(
+          create: (context) => widget.appStateManager,
+        ),
+        // TODO: Add AppStateManager ChangeNotifierProvider
+      ],
+      builder: (context, child) {
+        ThemeData theme;
+        theme = FooderlichTheme.light();
 
-    return MaterialApp(
-      theme: theme,
-      title: 'Fooderlich',
-      home: Router(
-        routerDelegate: _appRouter,
-        backButtonDispatcher: RootBackButtonDispatcher(),
-      ),
+        return MaterialApp(
+          theme: theme,
+          title: 'Fooderlich',
+          // TODO: Replace with Router widget
+          home: const SplashScreen(),
+        );
+      },
     );
   }
 }
