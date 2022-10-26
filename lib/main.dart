@@ -19,7 +19,6 @@ class Fooderlich extends StatefulWidget {
 
 class _FooderlichState extends State<Fooderlich> {
   final _groceryManager = GroceryManager();
-  final _profileManager = ProfileManager();
   final _appStateManager = AppStateManager();
   late AppRouter _appRouter;
 
@@ -29,51 +28,30 @@ class _FooderlichState extends State<Fooderlich> {
     _appRouter = AppRouter(
       appStateManager: _appStateManager,
       groceryManager: _groceryManager,
-      profileManager: _profileManager,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => _groceryManager),
-        ChangeNotifierProvider(
-          create: (context) => _appStateManager,
-        ),
-        ChangeNotifierProvider(
-          create: (context) => _profileManager,
-        )
-      ],
-      child: Consumer<ProfileManager>(
-        builder: (context, profileManager, child) {
-          ThemeData theme;
-          if (profileManager.darkMode) {
-            theme = FooderlichTheme.dark();
-          } else {
-            theme = FooderlichTheme.light();
-          }
+    final theme = FooderlichTheme.light();
 
-          return MaterialApp(
-            theme: theme,
-            title: 'Fooderlich',
-            home: Router(
-              routerDelegate: _appRouter,
-              backButtonDispatcher: RootBackButtonDispatcher(),
-            ),
-          );
-        },
+    return MaterialApp(
+      theme: theme,
+      title: 'Fooderlich',
+      home: Router(
+        routerDelegate: _appRouter,
+        backButtonDispatcher: RootBackButtonDispatcher(),
       ),
     );
   }
 }
 
-      // home: MultiProvider(
-      //   providers: [
-      //     ChangeNotifierProvider(create: (context) => _appStateManager),
-      //     ChangeNotifierProvider(
-      //       create: (context) => GroceryManager(),
-      //     ),
-      //   ],
-      //   child: const Home(),
-      // ),
+// home: MultiProvider(
+//   providers: [
+//     ChangeNotifierProvider(create: (context) => _appStateManager),
+//     ChangeNotifierProvider(
+//       create: (context) => GroceryManager(),
+//     ),
+//   ],
+//   child: const Home(),
+// ),
