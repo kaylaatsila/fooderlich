@@ -235,7 +235,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
           ],
         ),
         if (_dueDate != null)
-          Text('${DateFormat('yyyy-MM-dd').format(_dueDate)}'),
+          Text(DateFormat('yyyy-MM-dd').format(_dueDate)),
       ],
     );
   }
@@ -267,7 +267,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             ),
           ],
         ),
-        if (_timeOfDay != null) Text('${_timeOfDay.format(context)}'),
+        if (_timeOfDay != null) Text(_timeOfDay.format(context)),
       ],
     );
   }
