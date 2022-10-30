@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'fooderlich_theme.dart';
 import 'models/models.dart';
 import 'screens/screens.dart';
-import 'navigation/app_router.dart';
 import 'myInheritedWidget.dart';
 
 void main() async {
@@ -17,7 +16,7 @@ void main() async {
 class Fooderlich extends StatefulWidget {
   final AppStateManager appStateManager;
 
-  const Fooderlich({Key? key, required this.appStateManager}) : super(key: key);
+  const Fooderlich({Key? key,  required this.appStateManager}) : super(key: key);
 
   @override
   _FooderlichState createState() => _FooderlichState();

@@ -6,12 +6,12 @@ import '/screens/screens.dart';
 class AppRouter extends RouterDelegate with ChangeNotifier, PopNavigatorRouterDelegateMixin {
   // 2
   @override
-  GlobalKey<NavigatorState>? navigatorKey;
+  late GlobalKey<NavigatorState> navigatorKey;
 
   // 3
-  AppStateManager? appStateManager;
+  late AppStateManager appStateManager;
   // 4
-  GroceryManager? groceryManager;
+  late GroceryManager groceryManager;
 
   AppRouter(AppStateManager appStateManager, GroceryManager groceryManager) : navigatorKey = GlobalKey<NavigatorState>() {
     appStateManager.addListener(notifyListeners);
@@ -20,8 +20,8 @@ class AppRouter extends RouterDelegate with ChangeNotifier, PopNavigatorRouterDe
 
   @override
   void dispose() {
-    appStateManager?.removeListener(notifyListeners);
-    groceryManager?.removeListener(notifyListeners);
+    appStateManager.removeListener(notifyListeners);
+    groceryManager.removeListener(notifyListeners);
     super.dispose();
   }
 
@@ -35,8 +35,8 @@ class AppRouter extends RouterDelegate with ChangeNotifier, PopNavigatorRouterDe
       onPopPage: _handlePopPage,
       // 8
       pages: [
-        if (appStateManager!.isInitialized) SplashScreen.page(),
-        if (appStateManager!.isInitialized && !appStateManager!.isLoggedIn) LoginScreen.page(),
+        if (appStateManager.isInitialized) SplashScreen.page(),
+        if (appStateManager.isInitialized && !appStateManager.isLoggedIn) LoginScreen.page(),
       ],
     );
   }

@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: const [
             Image(
               height: 200,
-              image: AssetImage('assets/fooderlich_assets/empty-list.png'),
+              image: AssetImage('assets/fooderlich_assets/empty_list.png'),
             ),
             Text('Initializing...')
           ],
